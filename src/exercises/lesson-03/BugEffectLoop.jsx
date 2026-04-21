@@ -14,11 +14,12 @@ export default function BugEffectLoop() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    setCount(count + 1);
-  });
+    setCount(1);
+  }, []);
 
   return <p>Bug 1 Count: {count}</p>;
 }
 
 // Explanation:
-// (Write your explanation here)
+//The given useEffect had no dependency array, which triggers it to run after each render. The empty array ensures it only runs once
+//The count + 1 inside the setCount is also triggering another render

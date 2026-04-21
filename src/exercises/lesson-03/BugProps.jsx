@@ -1,5 +1,4 @@
 // src/exercises/lesson-03/BugProps.jsx
-
 /*
   BUG #3 — Props Not Updating
 
@@ -11,12 +10,17 @@
 
   Use the commented "Explanation" section at the bottom of this lesson's components.
 */
+import { useState } from 'react';
 
 export default function BugProps({ name = 'friend' }) {
-  let message = 'Hello, ' + name;
+  //let message = 'Hello, ' + name;
+
+  const [message, setMessage] = useState('Hello, ' + name);
 
   function handleChange() {
-    message = 'Hi, ' + name + '!';
+    setMessage('Hi, ' + name + '!');
+
+    // message = 'Hi, ' + name + '!';
   }
 
   return (
@@ -28,4 +32,8 @@ export default function BugProps({ name = 'friend' }) {
 }
 
 // Explanation:
-// (Write your explanation here)
+// In the original code, the message is stored in a regular js variable which is not tracked by React since it relies on the state to re-render the component and make the updates.
+// Adding the useState allows it to be tracked and re-render the component
+// the setMessage is the function we provide it to update and re-render the component.
+// It is also missing the 'import { useState } from 'react' ' at the very top.
+// Without importing useState, it'll be undefined
