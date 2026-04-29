@@ -6,8 +6,8 @@ export default function BugEventPropagation() {
     alert("RED BOX CLICKED ❌ Don't show me!");
   }
 
-  function handleInnerClick(click) {
-    click.stopPropagation();
+  function handleInnerClick(event) {
+    event.stopPropagation();
     alert('Button Clicked ✅');
   }
 
@@ -23,3 +23,5 @@ export default function BugEventPropagation() {
     </>
   );
 }
+
+// I fixed the handleInnerClick by passing an argument so when it runs, it receives the click event and call stopPropagation(), which prevents the event from bubbling up.

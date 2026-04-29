@@ -17,3 +17,8 @@ export default function FindCorrectHook() {
     </div>
   );
 }
+
+/* 
+  I chose the useRef hook because it allows to store the count across renders without causing re-renders.
+  The handleClick function was also fixed so it increments the value stored in useRef.
+*/

@@ -19,3 +19,10 @@ export default function FillRefFocus() {
     </div>
   );
 }
+
+/* 
+  I added the useRef() so it can access the input element in the DOM. 
+  Inside the focusInput function, we use the object (refInput) created by the useref along with the .current to call the focus() method.
+  The .focus() method moves the cursor into the input field. 
+  The ref was attached to the <input> using the ref attribute.
+*/
