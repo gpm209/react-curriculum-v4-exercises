@@ -7,9 +7,11 @@ export default function BugStrictMode() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    setInterval(() => {
+    const timer = setInterval(() => {
       setCount((c) => c + 1);
     }, 1000);
+
+    return () => clearInterval(timer);
   }, []);
 
   return (
@@ -19,5 +21,6 @@ export default function BugStrictMode() {
     </div>
   );
 }
-
-// Write your explanation of how StrictMode helps us catch this bug
+/*StrictMode helps us catch this type of bug early in development by re-running some of the lifecycles twice.
+It allows us to see the side effects that are not cleaned up properly, in this case, the setInterval function.
+*/
