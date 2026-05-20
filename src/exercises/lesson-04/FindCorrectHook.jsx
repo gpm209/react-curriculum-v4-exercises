@@ -1,24 +1,23 @@
 // TOPIC: Choose the correct tool: useRef vs useState
 // TASK: Make sure it updates the text *without* triggering a re-render
-import { useRef } from 'react';
+import { useState } from 'react';
 
 export default function FindCorrectHook() {
-  const clickCount = useRef(0);
+  const [clickCount, setClickCount] = useState(0);
 
   function handleClick() {
-    clickCount.current++;
-    console.log(clickCount.current);
+    setClickCount(clickCount + 1);
   }
 
   return (
     <div>
       <h2>useRef vs useState Decision</h2>
-      <button onClick={handleClick}>{clickCount.current} Clicks</button>
+      <button onClick={handleClick}>{clickCount} Clicks</button>
     </div>
   );
 }
 
 /* 
-  I chose the useRef hook because it allows to store the count across renders without causing re-renders.
-  The handleClick function was also fixed so it increments the value stored in useRef.
+  This is the corrected version and I chose useState in this case because now the click count is displayed in the UI.
+  This is because useState triggers re-renders.
 */
