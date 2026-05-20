@@ -1,3 +1,4 @@
+//Filter buttons refactored
 export default function TaskFilter({ currentFilter, onFilterChange }) {
   return (
     <div>

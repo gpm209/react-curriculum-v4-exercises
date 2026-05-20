@@ -1,3 +1,5 @@
+//filter task logic removed
+
 export function filterTask(tasks, filter) {
   if (filter === 'completed') {
     return tasks.filter((task) => task.completed);

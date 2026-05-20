@@ -13,7 +13,7 @@ export default function StudentWork() {
   //  #1: Data fetching + state + UI logic separated now.
   const { tasks, loading } = useFetchingTask();
 
-  // #2: Filtering logic inside component
+  // #2: Filtering logic inside component fixed
   let visibleTasks = filterTask(tasks, filter);
 
   if (loading) {
