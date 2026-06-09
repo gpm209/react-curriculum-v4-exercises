@@ -134,6 +134,23 @@ export function surveyReducer(state, action) {
             : q
         ),
       };
+
+    case 'UPDATE_OPTION_TEXT':
+      return {
+        ...state,
+        questions: state.questions.map((q) =>
+          q.id === action.payload.questionId
+            ? {
+                ...q,
+                options: q.options.map((option, index) =>
+                  index === action.payload.optionIndex
+                    ? action.payload.newText
+                    : option
+                ),
+              }
+            : q
+        ),
+      };
     default:
       return state;
   }
