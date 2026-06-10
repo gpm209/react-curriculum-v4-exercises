@@ -99,7 +99,7 @@ export function surveyReducer(state, action) {
       return {
         ...state,
         questions: state.questions.map((q) =>
-          q.id === action.payload.Id
+          q.id === action.payload.id
             ? {
                 ...q,
                 question: action.payload.newText,
@@ -111,7 +111,7 @@ export function surveyReducer(state, action) {
     case 'DELETE_QUESTION':
       return {
         ...state,
-        question: state.questions.filter((q) => q.id !== action.payload.id),
+        questions: state.questions.filter((q) => q.id !== action.payload.id),
         ui: {
           ...state.ui,
           editingQuestionId:
@@ -129,7 +129,7 @@ export function surveyReducer(state, action) {
           q.type === QUESTION_TYPES.MULTIPLE_CHOICE
             ? {
                 ...q,
-                options: [...q.options, action.payload.optiontext],
+                options: [...q.options, action.payload.optionText],
               }
             : q
         ),
@@ -164,7 +164,7 @@ export function surveyReducer(state, action) {
             return {
               ...q,
               options: q.options.filter(
-                (_, index) => index !== action.payload.optionsIndex
+                (_, index) => index !== action.payload.optionIndex
               ),
             };
           }
